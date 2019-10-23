@@ -7,13 +7,21 @@
     <groupId>alten</groupId>
     <artifactId>alten</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <dependencies>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>RELEASE</version>
-            <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+
     </dependencies>
 
 

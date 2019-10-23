@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.*;
+
 import java.util.concurrent.TimeUnit;
 
 // Created by Rafał Walecki [16.06.2019]
@@ -17,23 +18,21 @@ import java.util.concurrent.TimeUnit;
 // move fixed and sensitive values like password to .properties file
 
 public class alten {
-
     WebDriver driver;
 
     @Before
-    public void Startup(){
+    public void Startup() {
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\rafal\\IdeaProjects\\alten\\src\\test\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\driver\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().deleteAllCookies();
         driver.get("http://automationpractice.com/index.php");
-
     }
 
     @Test //Scenario 1 - Creata an account
     public void CreateAnAccount() throws InterruptedException {
 
-        String email="rafal+"+Math.floor(Math.random()*11111)+"@gmail.com";
+        String email = "rafal+" + Math.floor(Math.random() * 11111) + "@gmail.com";
 
         WebElement SignIn = driver.findElement(By.cssSelector("[title=\"Log in to your customer account\"]"));
         WebDriverWait wait = new WebDriverWait(driver, 15);
@@ -43,7 +42,6 @@ public class alten {
 
         WebElement emailAddressField = driver.findElement((By.id("email_create")));
         emailAddressField.sendKeys(email);
-
 
         WebElement CreateAnAccount = driver.findElement(By.id("SubmitCreate"));
         CreateAnAccount.click();
@@ -65,46 +63,45 @@ public class alten {
         driver.findElement(By.id("days")).sendKeys("10");
         Thread.sleep(2000);
 
-        driver.findElement(By.id("months")).sendKeys("June");;
+        driver.findElement(By.id("months")).sendKeys("June");
         Thread.sleep(2000);
 
-        driver.findElement(By.id("years")).sendKeys("1989");;
+        driver.findElement(By.id("years")).sendKeys("1989");
         Thread.sleep(2000);
 
-        driver.findElement(By.id("company")).sendKeys("HP");;
+        driver.findElement(By.id("company")).sendKeys("HP");
         Thread.sleep(2000);
 
-        driver.findElement(By.id("address1")).sendKeys("Złota");;
+        driver.findElement(By.id("address1")).sendKeys("Złota");
         Thread.sleep(2000);
 
-        driver.findElement(By.id("city")).sendKeys("Warsaw");;
+        driver.findElement(By.id("city")).sendKeys("Warsaw");
         Thread.sleep(2000);
 
-        driver.findElement(By.id("postcode")).sendKeys("01766");;
+        driver.findElement(By.id("postcode")).sendKeys("01766");
         Thread.sleep(2000);
 
-        driver.findElement(By.id("id_country")).sendKeys("-");;
+        driver.findElement(By.id("id_country")).sendKeys("-");
         Thread.sleep(2000);
 
-        driver.findElement(By.id("id_country")).sendKeys("United States");;
+        driver.findElement(By.id("id_country")).sendKeys("United States");
         Thread.sleep(2000);
 
-        driver.findElement(By.id("id_state")).sendKeys("Alabama");;
+        driver.findElement(By.id("id_state")).sendKeys("Alabama");
         Thread.sleep(2000);
 
-        driver.findElement(By.id("phone")).sendKeys("987664335");;
+        driver.findElement(By.id("phone")).sendKeys("987664335");
         Thread.sleep(2000);
 
-        driver.findElement(By.id("phone_mobile")).sendKeys("987664335");;
+        driver.findElement(By.id("phone_mobile")).sendKeys("987664335");
         Thread.sleep(2000);
 
         driver.findElement(By.id("alias")).clear();
-        driver.findElement(By.id("alias")).sendKeys("testAlten");;
+        driver.findElement(By.id("alias")).sendKeys("testAlten");
         Thread.sleep(2000);
 
         driver.findElement(By.id("submitAccount")).click();
         Thread.sleep(2000);
-
     }
 
     @Test //Scenario 2 - Log in using created account
@@ -138,11 +135,9 @@ public class alten {
         SizeM.click();
         Thread.sleep(2000);
 
-
         WebElement selectProductSort = driver.findElement(By.id("selectProductSort"));
         selectProductSort.sendKeys("Price: Lowest first");
         Thread.sleep(2000);
-
 
         WebElement ListView = driver.findElement(By.id("list"));
         ListView.click();
@@ -191,14 +186,10 @@ public class alten {
 
         WebElement PayByBankWire = driver.findElement(By.cssSelector("[title=\"Pay by bank wire\"]"));
         PayByBankWire.click();
-        Thread.sleep(2000);
-
     }
-
-        @After
-    public void tearDown()throws InterruptedException {
+    @After
+    public void tearDown() throws InterruptedException {
         Thread.sleep(2000);
         driver.quit();
     }
-
 }
